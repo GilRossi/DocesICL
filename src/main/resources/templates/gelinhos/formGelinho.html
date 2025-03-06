@@ -1,13 +1,20 @@
 <!doctype html>
-<html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="pt" xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ice Candy Lovers</title>
 </head>
 <body>
+    <h1>Cadastro Geladinho</h1>
+    <form method="post">
+        Sabor: <input type="text" value="" name="sabor">
+        Quantidade: <input type="number" value="" name="qtd">
+        Fabricação: <input type="date" value="" name="fab">
+        Validade: <input type="date" value="" name="val">
+        <button type="submit">Salvar</button>
+    </form>
 
 </body>
 </html>
