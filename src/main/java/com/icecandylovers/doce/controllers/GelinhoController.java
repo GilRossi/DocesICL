@@ -8,6 +8,6 @@ public class GelinhoController {
 
     @RequestMapping("/cadastrarGelinho")
     public String form(){
-        return "formGelinho";
+        return "gelinhos/formGelinho";
     }
 }
