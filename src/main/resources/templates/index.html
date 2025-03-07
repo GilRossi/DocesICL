@@ -32,7 +32,7 @@
     </thead>
     <tbody>
     <tr th:each="gelinho: ${gelinhos}">
-        <td><span th:text="${gelinho.sabor}"></span></td>
+        <td><a th:href="${(#mvc.url('GC#detalhesGelinho').arg(0, gelinho.idGelinho)).build()}"><span th:text="${gelinho.sabor}"></span></a></td>
         <td><span th:text="${gelinho.qtd}"></span></td>
         <td><span th:text="${gelinho.fab}"></span></td>
         <td><span th:text="${gelinho.val}"></span></td>

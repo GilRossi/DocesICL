@@ -7,4 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.UUID;
 
 public interface GeladinhoRepository extends CrudRepository<Geladinho, UUID> {
+    Geladinho findByIdGelinho(UUID idGelinho);
 }

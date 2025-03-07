@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Controller
 public class GelinhoController {
@@ -41,6 +43,14 @@ public class GelinhoController {
         ModelAndView mv = new ModelAndView("index");
         Iterable<Geladinho> gelinhos = geladinhoRepository.findAll();
         mv.addObject("gelinhos", gelinhos);
+        return mv;
+    }
+
+    @RequestMapping("/{idGelinho}")
+    public ModelAndView detalhesGelinho(@PathVariable("idGelinho")UUID idGelinho){
+        Geladinho gelinho = geladinhoRepository.findByIdGelinho(idGelinho);
+        ModelAndView mv = new ModelAndView("detalhesGelinho");
+        mv.addObject("gelinho", gelinho);
         return mv;
     }
 }
