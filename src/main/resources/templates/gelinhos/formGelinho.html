@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ice Candy Lovers</title>
     <link rel="icon" type="image/x-icon" href="materialize/img/favicon.ico">
+    <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
 <nav class="menu" style="color:rgb(42, 26, 74); background-color:rgb(244, 165, 190);">
@@ -36,6 +37,7 @@
 </nav>
     <th:block th:include="mensagemValidacao"></th:block>
 
+<div class="container formGelinho">
     <form method="post" class="container">
         <div class="row">
             Sabor: <input type="text" value="" name="sabor">
@@ -45,7 +47,6 @@
             <div class="input-field col s2">
                 Fabricação: <input type="date" value="" name="fab">
             </div>
-
         </div>
 
         <button class="waves-effect waves-light btn" type="submit" style="color:rgb(42, 26, 74); background-color:rgb(173, 156, 182);">
@@ -55,6 +56,8 @@
             Salvar
         </button>
     </form>
+</div>
+
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>

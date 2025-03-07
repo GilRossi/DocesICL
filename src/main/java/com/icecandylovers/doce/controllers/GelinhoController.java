@@ -72,6 +72,13 @@ public class GelinhoController {
         return mv;
     }
 
+    @RequestMapping("/deletar")
+    public String deletarGelinho(UUID idGelinho){
+        Geladinho geladinho = geladinhoRepository.findByIdGelinho(idGelinho);
+        geladinhoRepository.delete(geladinho);
+        return "redirect:/gelinhos";
+    }
+
     @RequestMapping(value = "/adicionarIngrediente/{idGelinho}", method = RequestMethod.POST)
     public String adicionarIngrediente(@PathVariable("idGelinho")
                                            UUID idGelinho,

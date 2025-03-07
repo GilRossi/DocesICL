@@ -1,0 +1,65 @@
+.detalhesEvento{
+    color: rgb(42, 26, 74);
+    box-shadow: 0px 0px 5px rgb(42, 26, 74);
+    padding-top: 1px;
+    padding-left:5px;
+    margin: auto;
+    width: 20%;
+    background-color:rgb(173, 156, 182);
+    font-weight: bold;
+}
+
+.formIngrediente{
+    color:rgb(42, 26, 74);
+    box-shadow: 0px 0px 5px rgb(42, 26, 74);
+    padding-top: 20px;
+    padding-left:20px;
+    padding-bottom:10px;
+    margim-bottom: 60px;
+    width: 60%;
+}
+.formGelinho{
+    color:rgb(42, 26, 74);
+    box-shadow: 0px 0px 5px rgb(42, 26, 74);
+    padding-top: 20px;
+    padding-left:20px;
+    padding-bottom:10px;
+    margim-bottom: 60px;
+}
+.detalhesIngrediente{
+    color:rgb(42, 26, 74);
+    box-shadow: 0px 0px 5px rgb(42, 26, 74);
+    padding-top: 20px;
+    padding-left:20px;
+    margim-left: 60px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 40%;
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(173, 156, 182);
+  color: rgb(42, 26, 74);
+}
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+h1, h2, h3, h4, h5{
+    color:rgb(42, 26, 74);
+    background-color:rgb(244, 165, 190);
+    box-shadow: 0px 0px 5px rgb(42, 26, 74);
+    padding-top: 10px;
+    padding-left:10px;
+    padding-bottom:10px;
+}
