@@ -1,9 +1,6 @@
 package com.icecandylovers.doce.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -12,6 +9,7 @@ import org.springframework.cglib.core.Local;
 import java.io.Serializable;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -30,6 +28,17 @@ public class Geladinho implements Serializable {
     @NotNull
     private LocalDate fab;
     private LocalDate val;
+
+    @OneToMany
+    private List<Ingrediente> ingredientes;
+
+    public List<Ingrediente> getIngredientes() {
+        return ingredientes;
+    }
+
+    public void setIngredientes(List<Ingrediente> ingredientes) {
+        this.ingredientes = ingredientes;
+    }
 
     public UUID getIdGelinho() {
         return idGelinho;
