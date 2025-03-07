@@ -13,25 +13,33 @@
     <title>Ice Candy Lovers</title>
     <link rel="icon" type="image/x-icon" href="materialize/img/favicon.ico">
 </head>
-<body> <nav>
-    <div class="nav-wrapper" style="color:rgb(42, 26, 74); background-color:rgb(244, 165, 190);">
-        <a href="#" class="brand-logo center" style="color:rgb(42, 26, 74); background-color:rgb(244, 165, 190);">Cadastro de Geladinho</a>
+<body>
+<nav class="menu" style="color:rgb(42, 26, 74); background-color:rgb(244, 165, 190);">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo" style="color:rgb(42, 26, 74);">
+            Cadastro de geladinho
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+                <a href="/gelinhos"
+                   class="waves-effect waves-light btn"
+                   style="background-color:rgb(173, 156, 182);
+                   color:rgb(42, 26, 74);">
+                    <i class="material-icons left">
+                        list
+                    </i>
+                    Lista de geladinho
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>
-<button style="background-color:rgb(173, 156, 182);">
-    <a class="waves-effect waves-light btn"
-        href="/gelinhos" style="color:rgb(42, 26, 74); background-color:rgb(173, 156, 182);">
-        <i class="material-icons left">
-            list
-        </i>
-            Lista de Geladinhos
-        </a>
-</button>
+    <th:block th:include="mensagemValidacao"></th:block>
 
     <form method="post" class="container">
         <div class="row">
             Sabor: <input type="text" value="" name="sabor">
-            <div class="input-field col s1">
+            <div class="input-field col s2">
                 Quantidade: <input type="number" value="" name="qtd">
             </div>
             <div class="input-field col s2">
@@ -40,14 +48,11 @@
 
         </div>
 
-        <button type="submit" style="background-color:rgb(173, 156, 182);">
-            <a class="waves-effect waves-light btn"
-               style="color:rgb(42, 26, 74); background-color:rgb(173, 156, 182);">
-                <i class="material-icons left">
-                    save
-                </i>
-                Salvar
-            </a>
+        <button class="waves-effect waves-light btn" type="submit" style="color:rgb(42, 26, 74); background-color:rgb(173, 156, 182);">
+            <i class="material-icons left">
+                save
+            </i>
+            Salvar
         </button>
     </form>
 <!--JavaScript at end of body for optimized loading-->

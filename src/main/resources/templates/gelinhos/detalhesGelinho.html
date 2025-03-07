@@ -14,22 +14,26 @@
     <link rel="icon" type="image/x-icon" href="materialize/img/favicon.ico">
 </head>
 <body>
-<nav>
-    <div class="nav-wrapper" style="color:rgb(42, 26, 74); background-color:rgb(244, 165, 190);">
-        <a href="#" class="brand-logo center" style="color:rgb(42, 26, 74); background-color:rgb(244, 165, 190);">Detalhes Geladinho</a>
+<nav class="menu" style="color:rgb(42, 26, 74); background-color:rgb(244, 165, 190);">
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo" style="color:rgb(42, 26, 74);">
+            Detalhes geladinho
+        </a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+                <a href="/gelinhos"
+                   class="waves-effect waves-light btn"
+                   style="background-color:rgb(173, 156, 182);
+                   color:rgb(42, 26, 74);">
+                    <i class="material-icons left">
+                        list
+                    </i>
+                    Lista de geladinhos
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>
-<button style="background-color:rgb(173, 156, 182);">
-    <a class="waves-effect waves-light btn"
-       href="/gelinhos"
-       style="color:rgb(42, 26, 74); background-color:rgb(173, 156, 182);">
-    <i class="material-icons left">
-        list
-    </i>
-    Lista de Geladinhos
-    </a>
-</button>
-
     <div class="container">
         <div class="row">
             <p>Sabor: <span th:text="${gelinho.sabor}"></span></p>
@@ -38,14 +42,15 @@
             <p>Validade: <span th:text="${gelinho.val}"></span></p>
         </div>
 
+        <th:block th:include="mensagemValidacao"></th:block> <!-- Corrigido para "mensagem" (um 's') -->
+
         <form
                 th:action="@{/adicionarIngrediente/{id}(id=${gelinho.idGelinho})}"
                 method="post"
                 th:object="${ingrediente}"
         >
-            <input type="text" th:field="*{nome}" placeholder="Nome do ingrediente">
-            <input type="number" th:field="*{qtd}" step="0.1" placeholder="Quantidade">
-
+            Ingrediente: <input type="text" th:field="*{nome}" placeholder="Nome do ingrediente">
+            Quantidade: <input type="number" th:field="*{qtd}" step="0.1" placeholder="Quantidade">
             <!-- Dropdown de medidas -->
             <select th:field="*{medida}">
                 <option value="">Selecione a medida</option>
@@ -56,19 +61,32 @@
                 ></option>
             </select>
 
-            <button type="submit" style="background-color:rgb(173, 156, 182);">
-                <a class="waves-effect waves-light btn"
-                   style="color:rgb(42, 26, 74); background-color:rgb(173, 156, 182);">
-                    <i class="material-icons left">
-                        add
-                    </i>
-                    ADICIONAR
-                </a>
+            <button class="waves-effect waves-light btn" type="submit" style="color:rgb(42, 26, 74); background-color:rgb(173, 156, 182);">
+                <i class="material-icons left">
+                    add
+                </i>
+                Adicionar
             </button>
         </form>
     </div>
+<h4 style="color:rgb(42, 26, 74); background-color:rgb(244, 165, 190);">Lista de ingredientes</h4>
 
-</div>
+<table class="container">
+    <thead>
+    <tr>
+        <td>Ingrediente</td>
+        <td>Quantidade</td>
+        <td>Medida</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ingrediente: ${ingredientes}">
+        <td><span th:text="${ingrediente.nome}"></span></td>
+        <td><span th:text="${ingrediente.qtd}"></span></td>
+        <td><span th:text="${ingrediente.medida}"></span></td>
+    </tr>
+    </tbody>
+</table>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

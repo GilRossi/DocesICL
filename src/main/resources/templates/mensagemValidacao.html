@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="mensagemValidacao">
+    <div th:if="${not #strings.isEmpty(mensagem)}" class="card-panel teal lighten-2">
+        <span th:text="${mensagem}"></span>
+    </div>
+</div>
+</html>
