@@ -49,7 +49,7 @@ public class GelinhoController {
     @RequestMapping("/{idGelinho}")
     public ModelAndView detalhesGelinho(@PathVariable("idGelinho")UUID idGelinho){
         Geladinho gelinho = geladinhoRepository.findByIdGelinho(idGelinho);
-        ModelAndView mv = new ModelAndView("detalhesGelinho");
+        ModelAndView mv = new ModelAndView("gelinhos/detalhesGelinho");
         mv.addObject("gelinho", gelinho);
         return mv;
     }
