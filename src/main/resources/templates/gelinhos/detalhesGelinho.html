@@ -29,15 +29,53 @@
     Lista de Geladinhos
     </a>
 </button>
-<div th:each="gelinho: ${gelinho}" class="container">
-    <div class="row">
-        <p>Sabor: <span th:text="${gelinho.sabor}"></span></p>
-        <p> Quantidade: <span th:text="${gelinho.qtd}"></span></p>
-        <p>Fabricação: <span th:text="${gelinho.fab}"></span></p>
-        <p>Validade: <span th:text="${gelinho.val}"></span></p>
+
+    <div class="container">
+        <div class="row">
+            <p>Sabor: <span th:text="${gelinho.sabor}"></span></p>
+            <p> Quantidade: <span th:text="${gelinho.qtd}"></span></p>
+            <p>Fabricação: <span th:text="${gelinho.fab}"></span></p>
+            <p>Validade: <span th:text="${gelinho.val}"></span></p>
+        </div>
+
+        <form
+                th:action="@{/adicionarIngrediente/{id}(id=${gelinho.idGelinho})}"
+                method="post"
+                th:object="${ingrediente}"
+        >
+            <input type="text" th:field="*{nome}" placeholder="Nome do ingrediente">
+            <input type="number" th:field="*{qtd}" step="0.1" placeholder="Quantidade">
+
+            <!-- Dropdown de medidas -->
+            <select th:field="*{medida}">
+                <option value="">Selecione a medida</option>
+                <option
+                        th:each="medida : ${medidas}"
+                        th:value="${medida}"
+                        th:text="${medida.name()}"
+                ></option>
+            </select>
+
+            <button type="submit" style="background-color:rgb(173, 156, 182);">
+                <a class="waves-effect waves-light btn"
+                   style="color:rgb(42, 26, 74); background-color:rgb(173, 156, 182);">
+                    <i class="material-icons left">
+                        add
+                    </i>
+                    ADICIONAR
+                </a>
+            </button>
+        </form>
     </div>
 
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('select');
+        M.FormSelect.init(elems);
+    });
+</script>
 
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>

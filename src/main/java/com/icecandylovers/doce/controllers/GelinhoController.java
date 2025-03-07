@@ -1,7 +1,10 @@
 package com.icecandylovers.doce.controllers;
 
+import com.icecandylovers.doce.enums.Medida;
 import com.icecandylovers.doce.models.Geladinho;
+import com.icecandylovers.doce.models.Ingrediente;
 import com.icecandylovers.doce.repositories.GeladinhoRepository;
+import com.icecandylovers.doce.repositories.IngredienteRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +23,9 @@ public class GelinhoController {
 
     @Autowired
     private GeladinhoRepository geladinhoRepository;
+
+    @Autowired
+    private IngredienteRepository ingredienteRepository;
 
     @RequestMapping(value = "/cadastrarGelinho", method = RequestMethod.GET)
     public String form(){
@@ -46,11 +52,21 @@ public class GelinhoController {
         return mv;
     }
 
-    @RequestMapping("/{idGelinho}")
+    @RequestMapping(value = "/{idGelinho}",method = RequestMethod.GET)
     public ModelAndView detalhesGelinho(@PathVariable("idGelinho")UUID idGelinho){
         Geladinho gelinho = geladinhoRepository.findByIdGelinho(idGelinho);
         ModelAndView mv = new ModelAndView("gelinhos/detalhesGelinho");
+        mv.addObject("ingrediente", new Ingrediente()); // Objeto para o formulário
+        mv.addObject("medidas", Medida.values()); // Valores do enum
         mv.addObject("gelinho", gelinho);
         return mv;
+    }
+
+    @RequestMapping(value = "/adicionarIngrediente/{idGelinho}", method = RequestMethod.POST)
+    public String adicionarIngrediente(@PathVariable("idGelinho") UUID idGelinho, @ModelAttribute("ingrediente") Ingrediente ingrediente) {
+        Geladinho geladinho = geladinhoRepository.findByIdGelinho(idGelinho);
+        ingrediente.setGeladinho(geladinho); // Vincula o ingrediente ao geladinho
+        ingredienteRepository.save(ingrediente);
+        return "redirect:/" + idGelinho; // Redireciona de volta aos detalhes
     }
 }
