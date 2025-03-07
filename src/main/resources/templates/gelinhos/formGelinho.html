@@ -11,21 +11,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ice Candy Lovers</title>
+    <link rel="icon" type="image/x-icon" href="materialize/img/favicon.ico">
 </head>
 <body> <nav>
-    <div class="nav-wrapper">
-        <a href="#" class="brand-logo center">Cadastro de Geladinho</a>
+    <div class="nav-wrapper" style="color:rgb(42, 26, 74); background-color:rgb(244, 165, 190);">
+        <a href="#" class="brand-logo center" style="color:rgb(42, 26, 74); background-color:rgb(244, 165, 190);">Cadastro de Geladinho</a>
     </div>
 </nav>
-    <form method="post">
-        Sabor: <input type="text" value="" name="sabor">
-        Quantidade: <input type="number" value="" name="qtd">
-        Fabricação: <input type="date" value="" name="fab">
+<button style="background-color:rgb(173, 156, 182);">
+    <a class="waves-effect waves-light btn"
+        href="/gelinhos" style="color:rgb(42, 26, 74); background-color:rgb(173, 156, 182);">
+        <i class="material-icons left">
+            list
+        </i>
+            Lista de Geladinho
+        </a>
+</button>
 
-        <button type="submit"><a class="waves-effect waves-light btn"><i class="material-icons left">save</i>Salvar</a></button>
+    <form method="post" class="container">
+        <div class="row">
+            Sabor: <input type="text" value="" name="sabor">
+            <div class="input-field col s1">
+                Quantidade: <input type="number" value="" name="qtd">
+            </div>
+            <div class="input-field col s2">
+                Fabricação: <input type="date" value="" name="fab">
+            </div>
+
+        </div>
+
+        <button type="submit" style="background-color:rgb(173, 156, 182);"><a class="waves-effect waves-light btn" style="color:rgb(42, 26, 74); background-color:rgb(173, 156, 182);"><i class="material-icons left">save</i>Salvar</a></button>
     </form>
-<button><a class="waves-effect waves-light btn" href="/gelinhos"><i class="material-icons left">add_circle_outline</i>Lista de Geladinho</a></button>
-
 <!--JavaScript at end of body for optimized loading-->
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 </body>
